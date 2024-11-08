@@ -34,7 +34,7 @@ class ChessGUI:
 
         for color in colors:
             for piece in pieces:
-                filename = f"Packages/Images/{color}{piece}.png"
+                filename = f"/Images/{color}{piece}.png"
                 piece_images[f"{color}{piece}"] = PhotoImage(file=filename)
 
         return piece_images
@@ -72,7 +72,7 @@ class ChessGUI:
 
         #print(self.chess_game.board)
         with chess.engine.SimpleEngine.popen_uci(
-                r"C:\Users\mithu\Documents\Python\chessHack\Packages\stockfish\stockfish-windows-x86-64-avx2.exe") as engine:
+                r"\stockfish\stockfish-windows-x86-64-avx2.exe") as engine:
             result = engine.play(self.chess_game.board, chess.engine.Limit(time=2.0))
             suggested_move = result.move
         
